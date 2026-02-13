@@ -1,6 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
+  "theme": "opencode-win",
+
+  /** "mode": {
+    "build": {
+      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
+    },
+    "plan": {
+      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
+    }
+  }, **/
+
   "plugin": [
     "opencode-antigravity-auth@latest", // https://github.com/NoeFabris/opencode-antigravity-auth/
     "opencode-anthropic-auth@latest", // https://github.com/anomalyco/opencode-anthropic-auth
@@ -12,7 +23,10 @@
     //"@tarquinen/opencode-dcp@latest", // https://github.com/Opencode-DCP/opencode-dynamic-context-pruning
     //"opencode-pty@latest", // https://github.com/shekohex/opencode-pty
   ],
-  "theme": "opencode-win",
+  "tui": {
+    "scroll_speed": 10,
+    "scroll_acceleration": { "enabled": true },
+  },
   "permission": {
     "external_directory": {
       "C:\\Users\\mynameistito\\.config\\opencode\\**": "allow",
@@ -385,7 +399,6 @@
       },
     },
   },
-  "model": "modal/zai-org/GLM-5-FP8",
 
   "mcp": {
     "chrome-devtools": {

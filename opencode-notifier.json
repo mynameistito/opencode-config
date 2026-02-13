@@ -1,0 +1,33 @@
+{
+  "sound": true,
+  "notification": true,
+  "timeout": 5,
+  "showProjectName": true,
+  "command": {
+    "enabled": false,
+    "path": "/path/to/command",
+    "args": ["--event", "{event}", "--message", "{message}"],
+    "minDuration": 0
+  },
+  "events": {
+    "permission": { "sound": true, "notification": true },
+    "complete": { "sound": true, "notification": true },
+    "subagent_complete": { "sound": false, "notification": false },
+    "error": { "sound": true, "notification": true },
+    "question": { "sound": true, "notification": true }
+  },
+  "messages": {
+    "permission": "Session needs permission",
+    "complete": "Session has finished",
+    "subagent_complete": "Subagent task completed",
+    "error": "Session encountered an error",
+    "question": "Session has a question"
+  },
+  "sounds": {
+    "permission": "C:/Users/mynameistito/.config/opencode/sounds/mac-quack.wav",
+    "complete": "C:/Users/mynameistito/.config/opencode/sounds/mac-quack.wav",
+    "subagent_complete": "C:/Users/mynameistito/.config/opencode/sounds/mac-quack.wav",
+    "error": "C:/Users/mynameistito/.config/opencode/sounds/mac-quack.wav",
+    "question": "C:/Users/mynameistito/.config/opencode/sounds/mac-quack.wav"
+  }
+}

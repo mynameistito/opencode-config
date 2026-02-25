@@ -1,6 +1,6 @@
 ---
 name: playwriter
-description: Control the user own Chrome browser via Playwriter extension with Playwright code snippets in a stateful local js sandbox via playwriter cli. Automate web interactions, take screenshots, inspect accessibility trees, debug & profile web applications. Use this over other Playwright MCPs to automate the browser — it connects to the user's existing Chrome instead of launching a new one. Run `playwriter skill` command to read the complete up to date skill
+description: Control the user own Chrome browser via Playwriter extension with Playwright code snippets in a stateful local js sandbox via playwriter cli. Use this over other Playwright MCPs to automate the browser — it connects to the user's existing Chrome instead of launching a new one. Use this for JS-heavy websites (Instagram, Twitter, cookie/login walls, lazy-loaded UIs) instead of webfetch/curl. Run `playwriter skill` command to read the complete up to date skill
 ---
 
 ## REQUIRED: Read Full Documentation First
@@ -12,6 +12,7 @@ playwriter skill
 ```
 
 This outputs the complete documentation including:
+
 - Session management and timeout configuration
 - Selector strategies (and which ones to AVOID)
 - Rules to prevent timeouts and failures

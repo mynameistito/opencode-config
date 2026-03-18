@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
     paths: ["opencode.jsonc"]
+  workflow_dispatch:
 
 jobs:
   update-readme:
@@ -41,8 +42,8 @@ jobs:
           async function main() {
             const content = fs.readFileSync('opencode.jsonc', 'utf8');
             const stripped = content
-              .replace(/\/\*[\s\S]*?\*\//g, '')   // block comments
-              .replace(/\/\/.*/g, '');              // line comments
+              .replace(/\/\*[\s\S]*?\*\//g, '')
+              .replace(/\/\/.*/g, '');
             const plugins = JSON.parse(stripped).plugin || [];
 
             const rows = [];
@@ -51,9 +52,8 @@ jobs:
                 const filename = entry.replace(/^file:\/\/.*\//, '');
                 rows.push(`| ${filename} | Local plugin (\`plugins/${filename}\`) |`);
               } else {
-                // Strip version suffix, keeping scoped package name intact
                 const pkgName = entry
-                  .replace(/(@[^/]+\/[^@]+)@.*$/, '$1')
+                  .replace(/(@[^\/]+\/[^@]+)@.*$/, '$1')
                   .replace(/^([^@][^@]*)@.*$/, '$1');
                 try {
                   const encoded = pkgName.replace('/', '%2F');
@@ -82,14 +82,12 @@ jobs:
               ...rows,
             ].join('\n');
 
-            // Replace the Plugins section in README
             const readme = fs.readFileSync('README.md', 'utf8');
             const updated = readme.replace(
               /(## Plugins\n\n)[\s\S]*?(\n\n## )/,
               `$1${table}$2`
             );
 
-            // Update Last Synced timestamp
             const now = new Date().toISOString().replace('T', ' ').replace(/\.\d+Z$/, ' UTC');
             const withTimestamp = updated.replace(
               /(## Last Synced\n\n).*/,

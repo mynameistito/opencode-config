@@ -4,7 +4,8 @@
   "keybinds": {
     "session_parent": "ctrl+up",
     "session_child_cycle_reverse": "ctrl+left",
-    "session_child_cycle": "ctrl+right"
+    "session_child_cycle": "ctrl+right",
+    "session_child_first": "ctrl+down"
   },
   "scroll_speed": 10,
   "scroll_acceleration": {

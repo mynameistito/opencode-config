@@ -1,42 +1,25 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
-
-  /** "mode": {
-    "build": {
-      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
-    },
-    "plan": {
-      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
-    }
-  }, **/
-
   "plugin": [
-    "opencode-antigravity-auth@latest", // https://github.com/NoeFabris/opencode-antigravity-auth/
-    "opencode-anthropic-auth@latest", // https://github.com/anomalyco/opencode-anthropic-auth
-    "opencode-sync-plugin@latest", // https://github.com/waynesutton/opencode-sync-plugin
-    "@mohak34/opencode-notifier@latest", // https://github.com/mohak34/opencode-notifier
-    "@zenobius/opencode-skillful@latest", // https://github.com/zenobi-us/opencode-skillful
-    "file:///C:/Users/mynameistito/.config/plugins/multicodex.ts",
-    //"file:///C:/Users/mynameistito/.config/plugins/opencode-kilo-auth/", // https://github.com/NoeFabris/opencode-kilo-auth
-    //"@franlol/opencode-md-table-formatter@latest", // https://github.com/franlol/opencode-md-table-formatter
-    //"@tarquinen/opencode-dcp@latest", // https://github.com/Opencode-DCP/opencode-dynamic-context-pruning
-    //"opencode-pty@latest", // https://github.com/shekohex/opencode-pty
+    "opencode-antigravity-auth@latest",
+    "opencode-anthropic-auth@latest",
+    "opencode-sync-plugin@latest",
+    "@mohak34/opencode-notifier@latest",
+    "file:///C:/Users/mynameistito/.config/plugins/multicodex.ts"
   ],
   "permission": {
     "external_directory": {
       "C:\\Users\\mynameistito\\.config\\opencode\\**": "allow",
       "E:\\GitHub\\**": "allow",
       "C:\\Users\\mynameistito\\.config\\aliases.ps1": "deny",
-      "*": "ask",
+      "*": "ask"
     },
-
     "read": {
       "C:\\Users\\mynameistito\\.config\\opencode\\**": "allow",
       "E:\\GitHub\\**": "allow",
-      "C:\\Users\\mynameistito\\.config\\aliases.ps1": "deny",
+      "C:\\Users\\mynameistito\\.config\\aliases.ps1": "deny"
     },
-
     "bash": {
       "*": "ask",
       "ast-grep *": "allow",
@@ -124,32 +107,51 @@
       "yarn *": "allow",
       "z *": "allow",
       "zip *": "allow",
-      "zoxide *": "allow",
-    },
+      "zoxide *": "allow"
+    }
   },
-
   "lsp": {
     "yaml": {
       "disabled": false,
-      "command": ["yaml-language-server", "--stdio"],
-      "extensions": [".yaml", ".yml"],
+      "command": [
+        "yaml-language-server",
+        "--stdio"
+      ],
+      "extensions": [
+        ".yaml",
+        ".yml"
+      ]
     },
-
     "tailwindcss": {
       "disabled": false,
-      "command": ["tailwindcss-language-server", "--stdio"],
-      "extensions": [".html", ".js", ".jsx", ".ts", ".tsx"],
-    },
-    "biome": {
-      "disabled": true,
+      "command": [
+        "tailwindcss-language-server",
+        "--stdio"
+      ],
+      "extensions": [
+        ".html",
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx"
+      ]
     },
     "typescript": {
       "disabled": false,
-      "command": ["typescript-language-server", "--stdio"],
-      "extensions": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs"],
-    },
+      "command": [
+        "typescript-language-server",
+        "--stdio"
+      ],
+      "extensions": [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx",
+        ".mjs",
+        ".cjs"
+      ]
+    }
   },
-
   "provider": {
     "anthropic": {
       "models": {
@@ -157,23 +159,23 @@
           "name": "Claude Opus 4.6",
           "limit": {
             "context": 200000,
-            "output": 128000,
+            "output": 128000
           },
           "variants": {
             "high": {
               "thinking": {
                 "type": "enabled",
-                "budgetTokens": 16000,
-              },
+                "budgetTokens": 16000
+              }
             },
             "max": {
               "thinking": {
                 "type": "enabled",
-                "budgetTokens": 128000,
-              },
-            },
-          },
-        },
+                "budgetTokens": 128000
+              }
+            }
+          }
+        }
       },
       "blacklist": [
         "claude-3-5-haiku-20241022",
@@ -193,36 +195,49 @@
         "claude-opus-4-5-20251101",
         "claude-sonnet-4-0",
         "claude-sonnet-4-20250514",
-        "claude-sonnet-4-5-20250929",
-      ],
+        "claude-sonnet-4-5-20250929"
+      ]
     },
-
     "kilo": {
       "npm": "@openrouter/ai-sdk-provider",
       "name": "Kilo Gateway",
       "options": {
         "baseURL": "https://api.kilo.ai/api/openrouter/",
-        "apiKey": "{env:OC_KILO_API_KEY}",
+        "apiKey": "{env:KILO_API_KEY}"
       },
       "models": {
         "z-ai/glm5:free": {
           "id": "z-ai/glm-5:free",
           "name": "GLM-5 (Kilo - Free)",
-          "limit": { "context": 202800, "output": 128000 },
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"],
+          "limit": {
+            "context": 202800,
+            "output": 128000
           },
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
         "minimax/minimax-m2.5:free": {
           "id": "minimax/minimax-m2.5:free",
           "name": "Minimax M2.5 (Kilo - Free)",
-          "limit": { "context": 204800, "output": 128000 },
-          "modalities": {
-            "input": ["text"],
-            "output": ["text"],
+          "limit": {
+            "context": 204800,
+            "output": 128000
           },
-        },
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        }
       },
       "blacklist": [
         "allenai/molmo-2-8b",
@@ -461,108 +476,242 @@
         "z-ai/glm-4.7",
         "z-ai/glm-4.7-flash",
         "z-ai/glm-5",
-      ],
+        "z-ai/glm-4.5-air:free",
+        "z-ai/glm-5:free",
+        "z-ai/glm5:free"
+      ]
     },
-
     "google": {
       "models": {
         "antigravity-gemini-3-pro": {
           "name": "Gemini 3 Pro (Antigravity)",
-          "limit": { "context": 1048576, "output": 65535 },
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
           "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "variants": {
-            "low": { "thinkingLevel": "low" },
-            "high": { "thinkingLevel": "high" },
-          },
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            }
+          }
         },
-
+        "antigravity-gemini-3.1-pro": {
+          "name": "Gemini 3.1 Pro (Antigravity)",
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "variants": {
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            }
+          }
+        },
         "antigravity-gemini-3-flash": {
           "name": "Gemini 3 Flash (Antigravity)",
-          "limit": { "context": 1048576, "output": 65536 },
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
           "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "variants": {
-            "minimal": { "thinkingLevel": "minimal" },
-            "low": { "thinkingLevel": "low" },
-            "medium": { "thinkingLevel": "medium" },
-            "high": { "thinkingLevel": "high" },
-          },
+            "minimal": {
+              "thinkingLevel": "minimal"
+            },
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "medium": {
+              "thinkingLevel": "medium"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            }
+          }
         },
-
-        "antigravity-claude-sonnet-4-5": {
-          "name": "Claude Sonnet 4.5 (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
+        "antigravity-claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6 (Antigravity)",
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
           "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
-          },
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
-
-        "antigravity-claude-sonnet-4-5-thinking": {
-          "name": "Claude Sonnet 4.5 Thinking (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
-          },
-          "variants": {
-            "low": { "thinkingConfig": { "thinkingBudget": 8192 } },
-            "max": { "thinkingConfig": { "thinkingBudget": 32768 } },
-          },
-        },
-
         "antigravity-claude-opus-4-6-thinking": {
           "name": "Claude Opus 4.6 Thinking (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
           "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "variants": {
-            "low": { "thinkingConfig": { "thinkingBudget": 8192 } },
-            "max": { "thinkingConfig": { "thinkingBudget": 32768 } },
-          },
+            "low": {
+              "thinkingConfig": {
+                "thinkingBudget": 8192
+              }
+            },
+            "max": {
+              "thinkingConfig": {
+                "thinkingBudget": 32768
+              }
+            }
+          }
         },
-
-        "gemini-cli-2.5-flash": {
+        "gemini-2.5-flash": {
           "name": "Gemini 2.5 Flash (Gemini CLI)",
-          "limit": { "context": 1048576, "output": 65536 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
+          "limit": {
+            "context": 1048576,
+            "output": 65536
           },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
-
-        "gemini-cli-2.5-pro": {
+        "gemini-2.5-pro": {
           "name": "Gemini 2.5 Pro (Gemini CLI)",
-          "limit": { "context": 1048576, "output": 65536 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
+          "limit": {
+            "context": 1048576,
+            "output": 65536
           },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
-
-        "gemini-cli-3-flash-preview": {
+        "gemini-3-flash-preview": {
           "name": "Gemini 3 Flash Preview (Gemini CLI)",
-          "limit": { "context": 1048576, "output": 65536 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
+          "limit": {
+            "context": 1048576,
+            "output": 65536
           },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
-        "gemini-cli-3-pro-preview": {
+        "gemini-3-pro-preview": {
           "name": "Gemini 3 Pro Preview (Gemini CLI)",
-          "limit": { "context": 1048576, "output": 65535 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
+          "limit": {
+            "context": 1048576,
+            "output": 65535
           },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         },
+        "gemini-3.1-pro-preview": {
+          "name": "Gemini 3.1 Pro Preview (Gemini CLI)",
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gemini-3.1-pro-preview-customtools": {
+          "name": "Gemini 3.1 Pro Preview Custom Tools (Gemini CLI)",
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        }
       },
       "whitelist": [
         "antigravity-claude-sonnet-4-5",
@@ -571,9 +720,8 @@
         "gemini-cli-2.5-flash",
         "gemini-cli-2.5-pro",
         "gemini-cli-3-flash-preview",
-        "gemini-cli-3-pro-preview",
+        "gemini-cli-3-pro-preview"
       ],
-
       "blacklist": [
         "gemini-1.5-flash",
         "gemini-1.5-flash-8b",
@@ -596,26 +744,34 @@
         "gemini-flash-latest",
         "gemini-flash-lite-latest",
         "gemini-live-2.5-flash",
-        "gemini-live-2.5-flash-preview-native-audio",
-      ],
+        "gemini-live-2.5-flash-preview-native-audio"
+      ]
     },
-
     "modal": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Modal",
       "options": {
         "baseURL": "https://api.us-west-2.modal.direct/v1",
-        "apiKey": "{env:OC_MODAL_API_KEY}",
+        "apiKey": "{env:MODAL_API_KEY}"
       },
       "models": {
         "zai-org/GLM-5-FP8": {
           "name": "GLM-5",
-          "limit": { "context": 200000, "output": 128000 },
-          "modalities": { "input": ["text"], "output": ["text"] },
-        },
-      },
+          "limit": {
+            "context": 200000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        }
+      }
     },
-
     "opencode": {
       "blacklist": [
         "claude-3-5-haiku",
@@ -641,167 +797,184 @@
         "gpt-5.1-codex-mini",
         "gpt-5.2",
         "gpt-5.2-codex",
+        "gpt-5.3-codex",
+        "gpt-5.3-codex-spark",
+        "gpt-5.4",
+        "gpt-5.4-pro",
         "grok-code",
         "kimi-k2",
         "kimi-k2-thinking",
         "kimi-k2.5",
         "minimax-m2.1",
         "minimax-m2.5",
-        "qwen3-coder",
-      ],
+        "qwen3-coder"
+      ]
     },
-
     "zai-coding-plan": {
+      "blacklist": [
+        "glm-5"
+      ],
       "options": {
-        "timeout": 600000,
-      },
-    },
+        "timeout": 600000
+      }
+    }
   },
-
   "mcp": {
     "chrome-devtools": {
       "type": "local",
-      "command": ["bunx -y chrome-devtools-mcp@latest"],
-      "enabled": false,
+      "command": [
+        "bunx -y chrome-devtools-mcp@latest"
+      ],
+      "enabled": false
     },
-
     "cloudflare": {
       "type": "remote",
       "url": "https://mcp.cloudflare.com/mcp",
-      "enabled": false,
+      "enabled": false
     },
-
     "cf-docs": {
       "type": "remote",
       "url": "https://docs.mcp.cloudflare.com/mcp",
-      "enabled": false,
+      "enabled": false
     },
-
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
-      "headers": { "CONTEXT7_API_KEY": "{env:OC_CONTEXT7_API_KEY}" },
-      "enabled": true,
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      },
+      "enabled": true
     },
     "github": {
       "type": "remote",
       "url": "https://api.githubcopilot.com/mcp/",
-      "headers": { "Authorization": "Bearer {env:OC_GITHUB_API_KEY}" },
-      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {env:GITHUB_API_KEY}"
+      },
+      "enabled": true
     },
-
     "grep_app": {
       "type": "remote",
       "url": "https://mcp.grep.app",
-      "enabled": true,
+      "enabled": true
     },
-
     "greptile": {
       "type": "remote",
       "url": "https://api.greptile.com/mcp",
-      "headers": { "Authorization": "Bearer {env:OC_GREPTILE_API_KEY}" },
-      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {env:GREPTILE_API_KEY}"
+      },
+      "enabled": true
     },
-
     "linear": {
       "type": "remote",
       "url": "https://mcp.linear.app/mcp",
-      "headers": { "Authorization": "Bearer {env:OC_LINEAR_API_KEY}" },
-      "enabled": false,
+      "headers": {
+        "Authorization": "Bearer {env:LINEAR_API_KEY}"
+      },
+      "enabled": false
     },
-
     "next-devtools": {
       "type": "local",
-      "command": ["bunx -y next-devtools-mcp@latest"],
-      "enabled": false,
+      "command": [
+        "bunx -y next-devtools-mcp@latest"
+      ],
+      "enabled": false
     },
-
     "playwriter": {
       "type": "local",
-      "command": ["bunx -y playwriter"],
-      "enabled": false,
+      "command": [
+        "bunx -y playwriter"
+      ],
+      "enabled": false
     },
-
     "sentry": {
       "type": "local",
       "command": [
-        "bunx -y mcp-remote@latest https://mcp.sentry.dev/mcp --resource sentry --debug",
+        "bunx -y mcp-remote@latest https://mcp.sentry.dev/mcp --resource sentry --debug"
       ],
-      "enabled": false,
+      "enabled": false
     },
-
     "sequential-thinking": {
       "type": "local",
       "command": [
-        "bunx -y @modelcontextprotocol/server-sequential-thinking --resource sequential-thinking --debug",
+        "bunx -y @modelcontextprotocol/server-sequential-thinking --resource sequential-thinking --debug"
       ],
-      "enabled": false,
+      "enabled": false
     },
-
     "shadcn": {
       "type": "local",
-      "command": ["bunx shadcn@latest mcp"],
-      "enabled": false,
+      "command": [
+        "bunx shadcn@latest mcp"
+      ],
+      "enabled": false
     },
-
     "sideways": {
       "type": "remote",
       "url": "https://usesideways.com/mcp",
-      "enabled": false,
+      "enabled": false
     },
-
     "socket": {
       "type": "remote",
       "url": "https://mcp.socket.dev",
-      "headers": { "SOCKET_API_KEY": "{env:OC_SOCKET_API_KEY}" },
-      "enabled": false,
+      "headers": {
+        "SOCKET_API_KEY": "{env:SOCKET_API_KEY}"
+      },
+      "enabled": false
     },
-
     "tessl": {
       "type": "local",
-      "command": ["tessl", "mcp", "start"],
-      "enabled": false,
+      "command": [
+        "tessl",
+        "mcp",
+        "start"
+      ],
+      "enabled": false
     },
-
     "ultracite": {
       "type": "remote",
       "url": "https://www.ultracite.ai/api/mcp/mcp",
-      "enabled": false,
+      "enabled": false
     },
-
     "ZAI-VISION": {
       "type": "local",
-      "command": ["bunx", "-y", "@z_ai/mcp-server"],
+      "command": [
+        "bunx",
+        "-y",
+        "@z_ai/mcp-server"
+      ],
       "environment": {
-        "Z_AI_API_KEY": "{env:OC_ZAI_API_KEY}",
-        "Z_AI_MODE": "ZAI",
+        "Z_AI_API_KEY": "{env:ZAI_API_KEY}",
+        "Z_AI_MODE": "ZAI"
       },
-      "enabled": false,
+      "enabled": false
     },
-
     "ZAI-WEBREADER": {
       "type": "remote",
       "url": "https://api.z.ai/api/mcp/web_reader/mcp",
-      "headers": { "Authorization": "Bearer {env:OC_ZAI_API_KEY}" },
-      "enabled": false,
+      "headers": {
+        "Authorization": "Bearer {env:ZAI_API_KEY}"
+      },
+      "enabled": false
     },
-
     "ZAI-WEBSEARCH": {
       "type": "remote",
       "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
-      "headers": { "Authorization": "Bearer {env:OC_ZAI_API_KEY}" },
-      "enabled": false,
+      "headers": {
+        "Authorization": "Bearer {env:ZAI_API_KEY}"
+      },
+      "enabled": false
     },
-
     "ZAI-ZREAD": {
       "type": "remote",
       "url": "https://api.z.ai/api/mcp/zread/mcp",
-      "headers": { "Authorization": "Bearer {env:OC_ZAI_API_KEY}" },
-      "enabled": false,
-    },
+      "headers": {
+        "Authorization": "Bearer {env:ZAI_API_KEY}"
+      },
+      "enabled": false
+    }
   },
-
   "experimental": {
-    "mcp_timeout": 60000,
-  },
+    "mcp_timeout": 60000
+  }
 }

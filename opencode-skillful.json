@@ -1,12 +1,6 @@
 {
   "debug": false,
-  "basePaths": [
-    "~/.config/opencode/skills",
-    ".opencode/skills",
-    "~/.config/opencode/skill",
-    ".opencode/skill",
-    "~/.config/agents/skills"
-  ],
+  "basePaths": ["~/.config/opencode/skill", ".opencode/skill", "~/.config/opencode/skills"],
   "promptRenderer": "xml",
   "modelRenderers": {}
 }

@@ -6,11 +6,10 @@ Auto-synced from [mynameistito/.config](https://github.com/mynameistito/.config)
 
 | Plugin | Source |
 |--------|--------|
-| opencode-antigravity-auth | [https://github.com/NoeFabris/opencode-antigravity-auth/](https://github.com/NoeFabris/opencode-antigravity-auth/) |
-| opencode-anthropic-auth | [https://github.com/anomalyco/opencode-anthropic-auth](https://github.com/anomalyco/opencode-anthropic-auth) |
+| opencode-antigravity-auth | [https://github.com/NoeFabris/opencode-antigravity-auth](https://github.com/NoeFabris/opencode-antigravity-auth) |
 | opencode-sync-plugin | [https://github.com/waynesutton/opencode-sync-plugin](https://github.com/waynesutton/opencode-sync-plugin) |
 | @mohak34/opencode-notifier | [https://github.com/mohak34/opencode-notifier](https://github.com/mohak34/opencode-notifier) |
-| @zenobius/opencode-skillful | [https://github.com/zenobi-us/opencode-skillful](https://github.com/zenobi-us/opencode-skillful) |
+| multicodex.ts | Local plugin (`plugins/multicodex.ts`) |
 
 
 ## Structure
@@ -25,4 +24,4 @@ Auto-synced from [mynameistito/.config](https://github.com/mynameistito/.config)
 
 ## Last Synced
 
-2026-02-25 09:08:30 UTC
+2026-03-18 00:00:00 UTC

@@ -3,7 +3,6 @@
   "default_agent": "plan",
   "plugin": [
     "opencode-antigravity-auth@latest",
-    "opencode-anthropic-auth@latest",
     "opencode-sync-plugin@latest",
     "@mohak34/opencode-notifier@latest",
     "file:///C:/Users/mynameistito/.config/plugins/multicodex.ts"

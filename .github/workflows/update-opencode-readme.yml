@@ -16,8 +16,21 @@ jobs:
         run: node scripts/update-readme.mjs
 
       - name: Commit and push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions@github.com"
-          git add README.md
-          git diff --staged --quiet || (git commit -m "chore: sync plugin list in README" && git push)
+          set -euo pipefail
+          if git diff --quiet -- README.md; then
+            echo "README is already up to date; nothing to commit."
+            exit 0
+          fi
+          # main requires verified commits, so create the commit through the API:
+          # a commit the Actions bot makes with no custom author or committer is
+          # signed by GitHub and satisfies the required_signatures rule.
+          base_sha="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${GITHUB_REF_NAME}" --jq .object.sha)"
+          base_tree="$(gh api "repos/${GITHUB_REPOSITORY}/git/commits/${base_sha}" --jq .tree.sha)"
+          blob_sha="$(jq -n --arg content "$(base64 -w0 README.md)" '{content: $content, encoding: "base64"}' | gh api "repos/${GITHUB_REPOSITORY}/git/blobs" --input - --jq .sha)"
+          tree_sha="$(jq -n --arg base "$base_tree" --arg sha "$blob_sha" '{base_tree: $base, tree: [{path: "README.md", mode: "100644", type: "blob", sha: $sha}]}' | gh api "repos/${GITHUB_REPOSITORY}/git/trees" --input - --jq .sha)"
+          commit_sha="$(jq -n --arg msg "chore: sync plugin list in README" --arg tree "$tree_sha" --arg parent "$base_sha" '{message: $msg, tree: $tree, parents: [$parent]}' | gh api "repos/${GITHUB_REPOSITORY}/git/commits" --input - --jq .sha)"
+          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/git/refs/heads/${GITHUB_REF_NAME}" -f sha="${commit_sha}"
+          echo "Committed README update as ${commit_sha}"
